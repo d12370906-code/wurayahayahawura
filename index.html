@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人簡介</title>
+    <style>
+        /* ===================================================
+           粉色系色彩設定 (溫柔典雅的玫瑰粉 / 櫻花粉色調)
+           =================================================== */
+        :root {
+            --primary-color: #e11d48;
+            /* 主色：典雅玫瑰粉紅 */
+            --primary-light: #fff1f2;
+            /* 強調區塊背景：柔和櫻花粉底 */
+            --primary-badge: #ffe4e6;
+            /* 項目底色：淡粉色 */
+            --bg-color: #fff5f7;
+            /* 頁面背景色：溫柔棉花糖粉 */
+            --card-bg: #ffffff;
+            /* 卡片背景：純白 */
+            --text-title: #881337;
+            /* 大標題文字顏色：深莓粉紅 */
+            --text-body: #4c3b42;
+            /* 內文主要文字顏色：溫暖深灰粉 */
+            --text-label: #9f6b7c;
+            /* 欄位標籤顏色：氣質粉灰 (姓名、星座等) */
+            --border-color: #fecdd3;
+            /* 邊框線條：淡玫瑰粉 */
+            --shadow: 0 12px 28px -6px rgba(225, 29, 72, 0.1), 0 8px 12px -6px rgba(225, 29, 72, 0.05);
+            --radius-main: 16px;
+            /* 主要圓角 */
+            --radius-sub: 8px;
+            /* 次要小圓角 */
+        }
+
+        /* 基礎重設 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "微軟正黑體", Roboto, sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #fdf2f8 100%);
+            color: var(--text-body);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* 主名片卡片容器 */
+        .profile-card {
+            background-color: var(--card-bg);
+            max-width: 780px;
+            width: 100%;
+            border-radius: var(--radius-main);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+        }
+
+        /* 頁面標題 */
+        .card-header {
+            text-align: center;
+            margin-bottom: 36px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-title);
+            letter-spacing: 2px;
+        }
+
+        /* 主要內容排版 (左右兩欄配置) */
+        .profile-body {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+
+        /* 照片/圖片區域 */
+        .image-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-main);
+            border: 3px solid #ffffff;
+            box-shadow: 0 6px 18px rgba(225, 29, 72, 0.15);
+            background-color: var(--primary-light);
+        }
+
+        /* 基本資料列表 */
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            background-color: var(--primary-badge);
+            border-radius: var(--radius-sub);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-label);
+            width: 80px;
+            flex-shrink: 0;
+            font-size: 0.95rem;
+        }
+
+        .info-value {
+            color: var(--text-body);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* 自我介紹區域 (橫跨下方整欄) */
+        .intro-section {
+            margin-top: 28px;
+            padding: 22px 24px;
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 var(--radius-sub) var(--radius-sub) 0;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .intro-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .intro-text {
+            color: var(--text-body);
+            font-size: 0.98rem;
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+
+        /* 響應式手機排版 (螢幕小於 680px 自動變單欄直排) */
+        @media (max-width: 680px) {
+            .profile-card {
+                padding: 24px 18px;
+            }
+
+            .profile-body {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .image-wrapper {
+                margin-bottom: 8px;
+            }
+
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .card-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="profile-card">
+        <!-- 標題 -->
+        <header class="card-header">
+            <h1 class="card-title">個人簡介</h1>
+        </header>
+
+        <!-- 資料與相片區域 -->
+        <div class="profile-body">
+            <!-- 圖片 -->
+            <div class="image-wrapper">
+                <img src="images/OIP.png" onerror="if(this.src.indexOf('images/')!==-1){this.src='OIP.png';}" alt="奇諾比奧"
+                    class="profile-img">
+            </div>
+
+            <!-- 基本欄位 -->
+            <div class="info-list">
+                <div class="info-item">
+                    <span class="info-label">姓名：</span>
+                    <span class="info-value"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">星座：</span>
+                    <span class="info-value"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">學歷：</span>
+                    <span class="info-value"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">興趣：</span>
+                    <span class="info-value"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">專長：</span>
+                    <span class="info-value"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 自我介紹 -->
+        <section class="intro-section">
+            <h2 class="intro-title">自我介紹</h2>
+            <p class="intro-text">
+                您好！歡迎來到我的個人頁面。熱愛學習與探索新事物，平時喜歡和朋友一起運動與交流。很高興認識大家！
+            </p>
+        </section>
+    </main>
+
+</body>
+
+</html>
