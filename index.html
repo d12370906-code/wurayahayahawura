@@ -351,6 +351,17 @@
             font-size: 1rem;
         }
 
+        .work-cover img {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+        }
+
+        .work-cover:has(img) {
+            padding: 0;
+        }
+
         .work-info {
             padding: 16px;
         }
@@ -442,9 +453,7 @@
                 <p class="page-description">簡單認識我</p>
                 <div class="home-content">
                     <div class="image-wrapper">
-                        <img src="images/OIP.png"
-                            onerror="if (!this.dataset.fallbackTried) { this.dataset.fallbackTried = '1'; this.src = 'OIP.png'; }"
-                            alt="個人照片" class="profile-img">
+                        <img src="images/pic.png" alt="個人照片" class="profile-img">
                     </div>
                     <div>
                         <h2 class="home-greeting">你好！我是李曜全</h2>
@@ -463,9 +472,7 @@
 
                 <div class="about-layout">
                     <div class="image-wrapper about-photo">
-                        <img src="images/photo.png"
-                            onerror="if (!this.dataset.fallbackTried) { this.dataset.fallbackTried = '1'; this.src = 'photo.png'; }"
-                            alt="個人照片" class="profile-img">
+                        <img src="images/pic.png" alt="個人照片" class="profile-img">
                     </div>
                     <div class="info-list">
                         <div class="info-item"><span class="info-label">姓名：</span><span class="info-value">李曜全</span>
@@ -550,31 +557,17 @@
 
                 <div class="portfolio-grid">
                     <article class="work-card">
-                        <div class="work-cover">作品圖片 1</div>
+                        <div class="work-cover"><img src="images/draw01.png" alt="思考"></div>
                         <div class="work-info">
-                            <h3>［作品名稱一］</h3>
-                            <p>請簡介作品的創作理念、使用工具或完成過程。</p>
+                            <h3>思考</h3>
+                            <p>貼圖01</p>
                         </div>
                     </article>
                     <article class="work-card">
-                        <div class="work-cover">作品圖片 2</div>
+                        <div class="work-cover"><img src="images/draw02.png" alt="求救"></div>
                         <div class="work-info">
-                            <h3>［作品名稱二］</h3>
-                            <p>可以放入課堂作業、設計作品、攝影或其他成果。</p>
-                        </div>
-                    </article>
-                    <article class="work-card">
-                        <div class="work-cover">作品圖片 3</div>
-                        <div class="work-info">
-                            <h3>［作品名稱三］</h3>
-                            <p>將這段文字替換成作品的簡短說明。</p>
-                        </div>
-                    </article>
-                    <article class="work-card">
-                        <div class="work-cover">作品圖片 4</div>
-                        <div class="work-info">
-                            <h3>［作品名稱四］</h3>
-                            <p>也可以在這裡放上作品成果與相關連結。</p>
+                            <h3>求救</h3>
+                            <p>貼圖02</p>
                         </div>
                     </article>
                 </div>
