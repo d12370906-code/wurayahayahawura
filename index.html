@@ -347,6 +347,18 @@
     .work-info h3 { margin: 0 0 4px; font-size: 19px; }
     .work-info p { margin: 0; font-size: 13px; color: var(--text-soft); }
     .work-category { border: 1px solid var(--border); background: var(--primary-soft); color: var(--primary-deep); padding: 5px 12px; border-radius: 999px; font-weight: 850; font-size: 11px; white-space: nowrap; }
+    /* 第三件作品：可點擊的網站作品展示卡片 */
+    .code-project-card { grid-column: 1 / -1; }
+    .code-project-link { display: flex; align-items: center; min-width: 0; gap: 24px; padding: 30px 32px; color: var(--text); background: linear-gradient(110deg, var(--primary-soft), var(--surface-solid)); text-decoration: none; transition: background-color .2s ease; }
+    .code-project-icon { display: grid; place-items: center; width: 72px; height: 72px; flex: 0 0 72px; border: 1px solid var(--border); border-radius: 22px; color: var(--primary); background: var(--surface-solid); }
+    .code-project-icon svg { width: 34px; height: 34px; }
+    .code-project-details { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+    .code-project-overline { margin-bottom: 4px; color: var(--primary); font-size: 11px; letter-spacing: .12em; font-weight: 900; }
+    .code-project-title { font-size: 22px; font-weight: 900; line-height: 1.45; }
+    .code-project-url { max-width: 100%; margin-top: 4px; overflow-wrap: anywhere; color: var(--text-soft); font-size: 13px; }
+    .code-project-cta { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; gap: 8px; padding: 12px 17px; border-radius: 14px; background: var(--primary); color: #fff; font-size: 12px; font-weight: 850; transition: transform .2s ease; }
+    .code-project-cta svg { width: 17px; height: 17px; }
+    .code-project-card:hover .code-project-cta { transform: translateX(4px); }
     .works-caption { color: var(--text-soft); font-size: 12px; margin: 18px 5px 0; }
 
     .lightbox { position: fixed; width: min(740px, calc(100vw - 32px)); max-height: min(88dvh, 900px); padding: 0; border: 1px solid var(--border); border-radius: 25px; overflow: auto; background: var(--surface-solid); color: var(--text); box-shadow: 0 30px 95px rgba(50, 16, 30, .25); }
@@ -437,6 +449,13 @@
       .timeline-content h3 { font-size: 16px; }
       .skill-card { padding: 23px; }
       .art-stage { height: 295px; }
+      .code-project-link { flex-wrap: wrap; gap: 14px; padding: 23px; }
+      .code-project-icon { width: 54px; height: 54px; flex-basis: 54px; border-radius: 16px; }
+      .code-project-icon svg { width: 27px; height: 27px; }
+      .code-project-details { flex-basis: calc(100% - 76px); }
+      .code-project-title { font-size: 19px; }
+      .code-project-url { font-size: 11px; }
+      .code-project-cta { margin-left: auto; }
     }
     @media (max-width: 390px) {
       .nav-button { padding: 8px 10px; }
@@ -579,12 +598,41 @@
         </section>
 
         <section class="page-panel" id="works" role="tabpanel" aria-labelledby="tab-works" hidden>
-          <div class="page-header" data-watermark="05"><span class="content-label">05 / SELECTED WORKS</span><h1>我的作品</h1><p>作品展示區，點擊圖片可以放大檢視。</p></div>
+          <div class="page-header" data-watermark="05"><span class="content-label">05 / SELECTED WORKS</span><h1>我的作品</h1><p>貼圖作品可放大檢視，程式設計作品可點擊前往網站。</p></div>
           <div class="portfolio-grid">
-            <article class="work-card"><button class="work-preview" type="button" data-work="0" aria-label="放大檢視作品：思考"><div class="art-stage"><span class="work-index">ARTWORK / 01</span><div class="photo-frame work-photo"><img src="images/draw01.png" alt="作品：思考" loading="lazy"><div class="image-fallback" aria-hidden="true"><svg><use href="#i-image"/></svg><span>放入 images/draw01.png<br>即可顯示作品</span></div></div><span class="view-work"><svg aria-hidden="true"><use href="#i-zoom"/></svg>放大檢視</span></div></button><div class="work-info"><div><h3>思考</h3><p>貼圖01</p></div><span class="work-category">貼圖創作</span></div></article>
-            <article class="work-card"><button class="work-preview" type="button" data-work="1" aria-label="放大檢視作品：求救"><div class="art-stage alt"><span class="work-index">ARTWORK / 02</span><div class="photo-frame work-photo"><img src="images/draw02.png" alt="作品：求救" loading="lazy"><div class="image-fallback" aria-hidden="true"><svg><use href="#i-image"/></svg><span>放入 images/draw02.png<br>即可顯示作品</span></div></div><span class="view-work"><svg aria-hidden="true"><use href="#i-zoom"/></svg>放大檢視</span></div></button><div class="work-info"><div><h3>求救</h3><p>貼圖02</p></div><span class="work-category">貼圖創作</span></div></article>
+            <article class="work-card">
+              <button class="work-preview" type="button" data-work="0" aria-label="放大檢視第一張貼圖創作">
+                <div class="art-stage"><span class="work-index">ARTWORK / 01</span>
+                  <div class="photo-frame work-photo"><img src="images/draw01.png" alt="貼圖創作作品一" loading="lazy">
+                    <div class="image-fallback" aria-hidden="true"><svg><use href="#i-image"/></svg><span>放入 images/draw01.png<br>即可顯示作品</span></div>
+                  </div><span class="view-work"><svg aria-hidden="true"><use href="#i-zoom"/></svg>放大檢視</span>
+                </div>
+              </button>
+              <div class="work-info"><h3>貼圖創作</h3></div>
+            </article>
+            <article class="work-card">
+              <button class="work-preview" type="button" data-work="1" aria-label="放大檢視第二張貼圖創作">
+                <div class="art-stage alt"><span class="work-index">ARTWORK / 02</span>
+                  <div class="photo-frame work-photo"><img src="images/draw02.png" alt="貼圖創作作品二" loading="lazy">
+                    <div class="image-fallback" aria-hidden="true"><svg><use href="#i-image"/></svg><span>放入 images/draw02.png<br>即可顯示作品</span></div>
+                  </div><span class="view-work"><svg aria-hidden="true"><use href="#i-zoom"/></svg>放大檢視</span>
+                </div>
+              </button>
+              <div class="work-info"><h3>貼圖創作</h3></div>
+            </article>
+            <article class="work-card code-project-card">
+              <a class="code-project-link" href="https://d12370906-code.github.io/hehewula/" target="_blank" rel="noopener noreferrer" aria-label="開啟程式設計作品網站（新分頁）">
+                <span class="code-project-icon"><svg aria-hidden="true"><use href="#i-code"/></svg></span>
+                <span class="code-project-details">
+                  <span class="code-project-overline">WEB PROJECT / 03</span>
+                  <span class="code-project-title">程式設計作品</span>
+                  <span class="code-project-url">d12370906-code.github.io/hehewula/</span>
+                </span>
+                <span class="code-project-cta">前往作品網站 <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </a>
+            </article>
           </div>
-          <p class="works-caption">✦ 作品將自動讀取 images 資料夾內的 PNG 圖片，沒有放入圖片時會顯示提示。</p>
+          <p class="works-caption">✦ 貼圖作品會讀取 images 資料夾中的 PNG 圖片；程式設計作品透過外部連結開啟。</p>
         </section>
       </main>
       <footer class="footnote"><span>© 2026 李曜全 · 個人作品集</span><span>用想法持續創作 <span class="mini-heart">♥</span></span></footer>
@@ -592,7 +640,7 @@
   </div>
 
   <dialog id="artDialog" class="lightbox" aria-labelledby="modalTitle">
-    <div class="lightbox-header"><div><h2 id="modalTitle">作品名稱</h2><p id="modalDescription">作品簡介</p></div><button type="button" class="icon-button" id="closeModal" aria-label="關閉圖片預覽"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="lightbox-header"><div><h2 id="modalTitle">作品名稱</h2><p id="modalDescription" hidden></p></div><button type="button" class="icon-button" id="closeModal" aria-label="關閉圖片預覽"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
     <div class="lightbox-art"><img id="modalImage" alt="" src="" hidden><div id="modalPlaceholder" class="modal-placeholder">作品圖片尚未放入 images 資料夾</div></div>
     <div class="lightbox-footer"><span class="lightbox-counter" id="modalCounter">01 / 02</span><div class="lightbox-controls"><button id="previousWork" type="button"><svg aria-hidden="true"><use href="#i-back"/></svg>上一件</button><button id="nextWork" type="button">下一件<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div>
   </dialog>
@@ -706,6 +754,7 @@
         const requestId = ++imageRequestId;
         modalTitle.textContent = work.title;
         modalDescription.textContent = work.description;
+        modalDescription.hidden = !work.description;
         modalCounter.textContent = `${String(selectedWork + 1).padStart(2, '0')} / ${String(works.length).padStart(2, '0')}`;
         modalImage.hidden = true;
         modalPlaceholder.classList.remove('show');
